@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://phpao023pq53"]
+
+[ext_resource type="Script" path="res://plugin/tts_list/v1_0_0/modules/settings/General/PreferredTTS.gd" id="1_lbt6t"]
+
+[resource]
+resource_name = "PreferredTTS"
+script = ExtResource("1_lbt6t")
+current = ""
+default = ""
+name = "PreferredTTS"
+category = "General"
+value_type = 4
+value_hint = 0
+value_hint_string = ""
+show_visible = true
+show_name = "PreferredSTT"
+show_ui = 9

@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3b0kmq6kg3uh"]
+
+[ext_resource type="Script" path="res://plugin/stt_list/v1_0_0/ui/model_node.gd" id="1_bmbjl"]
+[ext_resource type="Script" path="res://plugin/stt_list/v1_0_0/ui/model_container.gd" id="1_j8qu5"]
+[ext_resource type="Texture2D" uid="uid://c0hvwsa4qbk2h" path="res://plugin/stt_list/v1_0_0/ui/assets/refresh.svg" id="4_nuwpd"]
+[ext_resource type="Texture2D" uid="uid://fkqh87ka7wim" path="res://plugin/stt_list/v1_0_0/ui/assets/arrow-down.svg" id="7_6t3gr"]
+[ext_resource type="Texture2D" uid="uid://dwirtg4wjhkae" path="res://plugin/stt_list/v1_0_0/ui/assets/arrow-up.svg" id="8_48s4i"]
+
+[node name="ModelContainer" type="VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+offset_right = 495.0
+offset_bottom = 64.0
+script = ExtResource("1_j8qu5")
+
+[node name="Header" type="PanelContainer" parent="."]
+layout_mode = 2
+mouse_filter = 1
+script = ExtResource("1_bmbjl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Header"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Header/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Header/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PluginName" type="Label" parent="Header/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+text = "123123123123"
+
+[node name="ModelName" type="Label" parent="Header/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_filter = 1
+text = "123123123123"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Header/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="UseGpu" type="CheckButton" parent="Header/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "gpu"
+
+[node name="Language" type="OptionButton" parent="Header/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="UpdateButton" type="TextureButton" parent="Header/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("4_nuwpd")
+texture_pressed = ExtResource("4_nuwpd")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="ExpandButton" type="TextureButton" parent="Header/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("7_6t3gr")
+texture_pressed = ExtResource("8_48s4i")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="ModelList" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="toggled" from="Header/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4/UseGpu" to="." method="_on_use_gpu_toggled"]
+[connection signal="item_selected" from="Header/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4/Language" to="." method="_on_language_item_selected"]
+[connection signal="pressed" from="Header/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4/UpdateButton" to="." method="_on_update_button_pressed"]
+[connection signal="toggled" from="Header/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4/ExpandButton" to="." method="_on_expand_button_toggled"]

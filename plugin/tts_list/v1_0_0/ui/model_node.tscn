@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://8u5fk04vx447"]
+
+[ext_resource type="Script" path="res://plugin/tts_list/v1_0_0/ui/model_node.gd" id="1_jk731"]
+[ext_resource type="Texture2D" uid="uid://becc2mcqy8lot" path="res://plugin/downloader_list/v1_0_0/ui/assets/trash.svg" id="2_74o6h"]
+[ext_resource type="Texture2D" uid="uid://bpex4fc0f43oe" path="res://plugin/stt_list/v1_0_0/ui/assets/inbox.svg" id="3_qpfit"]
+[ext_resource type="Texture2D" uid="uid://c0hvwsa4qbk2h" path="res://plugin/stt_list/v1_0_0/ui/assets/refresh.svg" id="4_8r1cj"]
+[ext_resource type="Texture2D" uid="uid://dpkf60uvoxe67" path="res://plugin/downloader_list/v1_0_0/ui/assets/folder.svg" id="5_aj3y0"]
+[ext_resource type="Texture2D" uid="uid://c2uoaise2yr2j" path="res://plugin/downloader_list/v1_0_0/ui/assets/link.svg" id="6_6ueb1"]
+
+[node name="ModelNode" type="PanelContainer"]
+custom_minimum_size = Vector2(500, 0)
+offset_right = 680.0
+offset_bottom = 100.0
+mouse_filter = 1
+script = ExtResource("1_jk731")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ModelName" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_filter = 1
+text = "123123123123"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "TargetHash:"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "LocalHash:"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Hash" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="TargetHash" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/ScrollContainer/Hash"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LocalHash" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer/ScrollContainer/Hash"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="DeleteButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("2_74o6h")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="DownloadButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("3_qpfit")
+texture_pressed = ExtResource("4_8r1cj")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="UpdateButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("4_8r1cj")
+texture_pressed = ExtResource("4_8r1cj")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="FolderButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("5_aj3y0")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="LinkButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("6_6ueb1")
+ignore_texture_size = true
+stretch_mode = 3
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4/DeleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4/DownloadButton" to="." method="_on_download_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4/UpdateButton" to="." method="_on_update_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4/FolderButton" to="." method="_on_folder_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4/LinkButton" to="." method="_on_link_button_pressed"]

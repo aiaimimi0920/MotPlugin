@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhbs47rn8vrqu"]
+
+[ext_resource type="Script" path="res://plugin/tts_list/v1_0_0/ui/model_container.gd" id="1_gl6si"]
+[ext_resource type="Script" path="res://plugin/tts_list/v1_0_0/ui/model_node.gd" id="2_nag56"]
+[ext_resource type="Texture2D" uid="uid://c0hvwsa4qbk2h" path="res://plugin/stt_list/v1_0_0/ui/assets/refresh.svg" id="3_52r67"]
+[ext_resource type="Texture2D" uid="uid://fkqh87ka7wim" path="res://plugin/stt_list/v1_0_0/ui/assets/arrow-down.svg" id="4_pg5mv"]
+[ext_resource type="Texture2D" uid="uid://dwirtg4wjhkae" path="res://plugin/stt_list/v1_0_0/ui/assets/arrow-up.svg" id="5_8se8c"]
+
+[node name="ModelContainer" type="VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+offset_right = 495.0
+offset_bottom = 64.0
+script = ExtResource("1_gl6si")
+
+[node name="Header" type="PanelContainer" parent="."]
+layout_mode = 2
+mouse_filter = 1
+script = ExtResource("2_nag56")
+
+[node name="MarginContainer" type="MarginContainer" parent="Header"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Header/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Header/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PluginName" type="Label" parent="Header/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "123123123123"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Header/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="UpdateButton" type="TextureButton" parent="Header/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture_normal = ExtResource("3_52r67")
+texture_pressed = ExtResource("3_52r67")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="ExpandButton" type="TextureButton" parent="Header/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("4_pg5mv")
+texture_pressed = ExtResource("5_8se8c")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="ModelList" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="Header/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4/UpdateButton" to="." method="_on_update_button_pressed"]
+[connection signal="toggled" from="Header/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer4/ExpandButton" to="." method="_on_expand_button_toggled"]

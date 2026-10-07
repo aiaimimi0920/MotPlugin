@@ -1,0 +1,83 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbg4r5tfpvb15"]
+
+[ext_resource type="Script" path="res://plugin/tts_list/v1_0_0/ui/main.gd" id="1_iwj7a"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_iwj7a")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="Model" type="VBoxContainer" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Container" type="Control" parent="TabContainer/Model"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ModelContainer" type="ScrollContainer" parent="TabContainer/Model/Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ModelNodeContainer" type="VBoxContainer" parent="TabContainer/Model/Container/ModelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="Character" type="VBoxContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Container" type="Control" parent="TabContainer/Character"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharacterContainer" type="ScrollContainer" parent="TabContainer/Character/Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CharacterNodeContainer" type="VBoxContainer" parent="TabContainer/Character/Container/CharacterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2

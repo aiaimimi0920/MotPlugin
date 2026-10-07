@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bmrn0w6pbg5sa"]
+
+[ext_resource type="Script" path="res://external_service_adapter/speech_to_text_adapter/v1_0_0/modules/settings/STTServices/LastModelListUpdateTime.gd" id="1_3v5cl"]
+
+[resource]
+resource_name = "LastModelListUpdateTime"
+script = ExtResource("1_3v5cl")
+current = "0000-00-00"
+default = "0000-00-00"
+name = "LastModelListUpdateTime"
+category = "STTServices"
+value_type = 4
+value_hint = 0
+value_hint_string = ""
+show_visible = true
+show_name = "LastModelListUpdateTime"
+show_ui = 9

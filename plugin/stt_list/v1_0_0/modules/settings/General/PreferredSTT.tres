@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://y04lgpi376b"]
+
+[ext_resource type="Script" path="res://plugin/stt_list/v1_0_0/modules/settings/General/PreferredSTT.gd" id="1_e4cbk"]
+
+[resource]
+resource_name = "PreferredSTT"
+script = ExtResource("1_e4cbk")
+current = ""
+default = ""
+name = "PreferredSTT"
+category = "General"
+value_type = 4
+value_hint = 0
+value_hint_string = ""
+show_visible = true
+show_name = "PreferredSTT"
+show_ui = 9

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bhe1ux21nj0m2"]
+
+[ext_resource type="Script" path="res://external_service_adapter/tb_adapter/v1_0_0/modules/settings/General/RequestTimeout.gd" id="1_wu0eb"]
+
+[resource]
+resource_name = "RequestTimeout"
+script = ExtResource("1_wu0eb")
+current = 20.0
+default = 20.0
+name = "RequestTimeout"
+category = "General"
+value_type = 3
+value_hint = 1
+value_hint_string = "0,200,0.1"
+show_visible = true
+show_name = "RequestTimeout"
+show_ui = 6

@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package mubert;
+
+enum C2SMAINPROTOCOL {
+	C2SMAINPROTOCOL_NONE = 0;
+	C_S_WARE = 1; //Just as a definition for reading the main protocol string, keep the same name as the main protocol
+}
+
+enum S2CMAINPROTOCOL {
+	S2CMAINPROTOCOL_NONE = 0;
+	S_C_WARE = 1; //Just as a definition for reading the main protocol string, keep the same name as the main protocol
+}
+
+enum C2SPROTOCOL {
+	C2SPROTOCOL_NONE = 0;
+	C_S_SEARCH_WARE = 1001;
+	C_S_GET_WARE_INFO = 1002;
+}
+
+enum S2CPROTOCOL {
+	S2CPROTOCOL_NONE = 0;
+	S_C_SEARCH_WARE = 2001;
+	S_C_GET_WARE_INFO = 2002;
+}
+
+message M_C_S_SEARCH_WARE {
+	string keyword = 1;
+	int32 max_result = 2;
+}
+
+message M_C_S_GET_WARE_INFO {
+	string sku_id = 1;
+}
+
+message M_S_C_GET_WARE_INFO {
+	map<string, string> specs = 1;
+	repeated string images = 2;
+	string sku_id = 3;
+	repeated string comments = 4;
+	map<string, string> comments_info = 5;
+	string price = 6;
+	map<string, string> parameters = 7;
+	string url = 8;
+}
+
+message M_S_C_SEARCH_WARE {
+	repeated M_S_C_GET_WARE_INFO ware_infos = 1;
+}
